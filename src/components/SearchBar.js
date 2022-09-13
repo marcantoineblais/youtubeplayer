@@ -6,18 +6,13 @@ export default class SearchBar extends React.Component {
 
   render() {
     return (
-      <div className="search-bar ui segment">
-        <form
-          className="ui form"
-          onSubmit={e => this.props.onSearchSubmit(e, this.state.SearchField)}
-        >
-          <div className="field">
-            <input
-              placeholder="Video Search"
-              value={this.state.SearchField}
-              onChange={e => this.setState({ SearchField: e.target.value })}
-            />
-          </div>
+      <div className="search-bar">
+        <form onSubmit={e => this.props.onSearchSubmit(e, this.state.SearchField)}>
+          <input
+            placeholder="Video Search"
+            value={this.state.SearchField}
+            onChange={e => this.setState({ SearchField: e.target.value })}
+          />
         </form>
       </div>
     )

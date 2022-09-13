@@ -1,5 +1,21 @@
 @import url("./styles/SearchBar.scss");
+@import url("./styles/VideoItem.scss");
+@import url("./styles/VideoDetail.scss");
+@import url("./styles/VideoList.scss");
 
 body {
   padding: 10px 0;
+  background-color: #fcfcfc;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 3rem;
+  max-width: 2400px;
+}
+
+.video-playlist-container {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
 }

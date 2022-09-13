@@ -1,25 +1,33 @@
+const KEY = 'AIzaSyBNoBs7dGAv1FMLMHYhcSGv4p703ZJmXLg'
+
 const youtubeParams = (queryParams) => {
   const arrayParams = Object.entries(queryParams).map(([key, value]) => `${key}=${value}`)
   return arrayParams.join('&')
 }
 
 const youtubeSearch = async (searchField) => {
-  const KEY = 'AIzaSyBNoBs7dGAv1FMLMHYhcSGv4p703ZJmXLg'
-  const queryParams = {
+  const query = {
     'part': 'snippet',
-    'maxResults': 5,
+    'maxResults': 25,
     'type': 'video',
     'q': searchField,
     'key': KEY
   }
-  const res = await fetch(
-    `https://www.googleapis.com/youtube/v3/search?${youtubeParams(queryParams)}`, {
-      'headers' : {
-        'Accept': 'application/json',
+
+  let doc
+  try {
+    const res = await fetch(
+      `https://www.googleapis.com/youtube/v3/search?${youtubeParams(query)}`, {
+        'headers' : {
+          'Accept': 'application/json',
+        }
       }
-    }, (err) => (console.log(err))
-  )
-  const doc = await res.json()
+    )
+    doc = await res.json()
+  } catch (err) {
+    console.log(err)
+  }
+
   return doc
 }
 

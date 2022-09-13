@@ -1,0 +1,42 @@
+.video-item {
+  background-color: #fff;
+  margin-bottom: 8px;
+  display: flex;
+  box-shadow: 0 0 8px #0001;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5em;
+    padding-left: 1rem;
+  }
+
+  p {
+    font-size: 12px;
+    max-width: 420px;
+  }
+
+  h3 {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+
+  h5 {
+    margin: 0;
+    padding: 0.5em 0;
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  img {
+    align-items: center;
+    max-width: 20%;
+    object-fit: cover;
+  }
+
+}
