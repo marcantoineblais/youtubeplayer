@@ -1,33 +1,22 @@
-import React, { useEffect, useState } from "react"
-import youtubeSearch from "./api/youtubeSearch"
+import React, { useState } from "react"
 import SearchBar from './components/SearchBar'
 import VideoList from './components/VideoList'
 import VideoDetail from './components/VideoDetail'
+import useVideos from "./hooks/useVideos"
 
 const App = () => {
 
-  const [videos, setVideos] = useState([])
+  const [videos, setVideos] = useVideos('news')
   const [selectedVideo, setSelectedVideo] = useState(null)
 
-  const onSearchSubmit = async (searchField, e = new Event('submit')) => {
-    e.preventDefault()
-    const searchResults = await youtubeSearch(searchField)
-    setVideos(searchResults.items || [])
-  }
-
   const onVideoSelect = async (video) => {
-    const updatedResults = await youtubeSearch(video.snippet.title)
     setSelectedVideo(video)
-    setVideos(updatedResults.items || [])
+    setVideos(video.snippet.title)
   }
-
-  useEffect(() => {
-    onSearchSubmit('news')
-  }, [])
 
   return (
     <div className='container'>
-      <SearchBar onSearchSubmit={onSearchSubmit} />
+      <SearchBar onSearchSubmit={setVideos} />
 
       <div className='video-playlist-container'>
         <VideoDetail video={selectedVideo} />

@@ -13,6 +13,7 @@
     flex-direction: column;
     padding-top: 0.5em;
     padding-left: 1rem;
+    justify-content: space-between;
   }
 
   p {
@@ -35,8 +36,8 @@
 
   img {
     align-items: center;
-    max-width: 20%;
-    object-fit: cover;
+    width: 30%;
+    object-fit: contain;
   }
 
 }

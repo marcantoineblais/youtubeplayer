@@ -1,4 +1,5 @@
 import React from "react"
+import DOMPurify from "dompurify"
 
 const VideoDetail = ({ video }) => {
   let title, description, videoSrc, content
@@ -14,7 +15,7 @@ const VideoDetail = ({ video }) => {
         </div>
 
         <div className="description">
-          <h1>{title}</h1>
+          <h1 dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(title)}}></h1>
           <p>{description}</p>
         </div>
 

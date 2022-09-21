@@ -4,9 +4,14 @@ const SearchBar = ({ onSearchSubmit }) => {
 
   const [searchField, setSearchField] = useState("")
 
+  const search = (e) => {
+    e.preventDefault()
+    onSearchSubmit(searchField)
+  }
+
   return (
     <div className="search-bar">
-      <form onSubmit={e => onSearchSubmit(searchField, e)}>
+      <form onSubmit={e => search(e)}>
         <input
           placeholder="Video Search"
           value={searchField}
