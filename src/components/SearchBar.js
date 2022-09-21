@@ -1,20 +1,20 @@
-import React from "react"
+import React, { useState } from "react"
 
-export default class SearchBar extends React.Component {
+const SearchBar = ({ onSearchSubmit }) => {
 
-  state = { SearchField: "" }
+  const [searchField, setSearchField] = useState("")
 
-  render() {
-    return (
-      <div className="search-bar">
-        <form onSubmit={e => this.props.onSearchSubmit(e, this.state.SearchField)}>
-          <input
-            placeholder="Video Search"
-            value={this.state.SearchField}
-            onChange={e => this.setState({ SearchField: e.target.value })}
-          />
-        </form>
-      </div>
-    )
-  }
+  return (
+    <div className="search-bar">
+      <form onSubmit={e => onSearchSubmit(searchField, e)}>
+        <input
+          placeholder="Video Search"
+          value={searchField}
+          onChange={e => setSearchField(e.target.value)}
+        />
+      </form>
+    </div>
+  )
 }
+
+export default SearchBar

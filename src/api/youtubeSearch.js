@@ -1,14 +1,14 @@
-const KEY = 'AIzaSyBNoBs7dGAv1FMLMHYhcSGv4p703ZJmXLg'
+const KEY = 'AIzaSyAs9xAPJ_3waEWDsfyWp0gLciNd_cb-Flc'
 
 const youtubeParams = (queryParams) => {
-  const arrayParams = Object.entries(queryParams).map(([key, value]) => `${key}=${value}`)
+  const arrayParams = Object.entries(queryParams).map(([key, value]) => `${key}=${value}`).filter(el => el)
   return arrayParams.join('&')
 }
 
 const youtubeSearch = async (searchField) => {
   const query = {
     'part': 'snippet',
-    'maxResults': 25,
+    'maxResults': 10,
     'type': 'video',
     'q': searchField,
     'key': KEY
