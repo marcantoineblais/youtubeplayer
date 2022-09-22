@@ -1,12 +1,13 @@
 import React, { useState } from "react"
 
-const SearchBar = ({ onSearchSubmit }) => {
+const SearchBar = ({ onSearchSubmit, setShowPlayer }) => {
 
   const [searchField, setSearchField] = useState("")
 
   const search = (e) => {
     e.preventDefault()
     onSearchSubmit(searchField)
+    setShowPlayer(false)
   }
 
   return (
